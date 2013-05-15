@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <title>Factoids</title>
+    <link href='http://fonts.googleapis.com/css?family=Average+Sans|Esteban' rel='stylesheet' type='text/css'>
+    <style>
+      html, body {
+        padding: 0;
+        margin: 0;
+        background-color: black;
+      }
+      body {
+font-family: 'Average Sans', sans-serif;
+      }
+
+      .factoid-content {
+        word-wrap: pre-wrap;
+        font-family: "Esteban", serif;
+        font-size: 2em;
+      }
+
+      .factoid-link {
+        font-size: 1.2em;
+      }
+      h1 { margin: 0; padding: 0; }
+      a { color: #ddd; } 
+      #container {
+        color: #eee;
+text-align: center;
+background-color: #444;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+margin: 0 auto;
+max-width: 920px;
+border: 2px solid gray;
+padding: 1em;
+      }
+
+    .more, .factoid {
+      margin-top: 2em;
+    }
+
+    .more-link {
+      border: 1px solid gray;
+      background-color: #0073ae;
+      color: white;
+      padding: 0.3em;
+      display: inline-block;
+    }
+
+    table { width: 100%; text-align: left; } 
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Some kind of convincing title?</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Factoid</th>
+            <th>Source</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for factoid in factoids %}
+          <tr>
+            <td>{{factoid['content']}}</td>
+            <td><a href="{{factoid['url']}}">{{factoid['url']}}</a></td>
+            <td><a href="/{{factoid['slug']}}">[url]</a></td>
+          </tr>
+        {% end %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

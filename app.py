@@ -78,7 +78,7 @@ class AllFactoidHandler(tornado.web.RequestHandler):
             self.set_header("Content-Type", 'application/json')
             self.write(dumps(factoids))
         else:
-            self.render("templates/index.html", **factoids)
+            self.render("templates/all.html", **factoids)
 
 
 if __name__ == "__main__":
