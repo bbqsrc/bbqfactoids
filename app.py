@@ -70,8 +70,12 @@ class FactoidHandler(tornado.web.RequestHandler):
 
 class AllFactoidHandler(tornado.web.RequestHandler):
     def get(self, datatype=None):
+        x = list(self.application.factoids_collection.find())
+        for i in x:
+            del i['_id']
+
         factoids = {
-            "factoids": list(self.application.factoids_collection.find())
+            "factoids": x
         }
 
         if datatype == "json":
