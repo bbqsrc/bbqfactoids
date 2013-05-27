@@ -65,10 +65,10 @@ padding: 1em;
         </thead>
         <tbody>
         {% for factoid in factoids %}
-          <tr>
+          <tr>{% autoescape None %}
             <td>{{factoid['content']}}</td>
-            <td><a href="{{factoid['url']}}">{{factoid['url']}}</a></td>
-            <td><a href="/{{factoid['slug']}}">[url]</a></td>
+            <td><a href="{{factoid['source_url']}}">{{factoid['source_text']}}</a></td>
+            <td><a href="/{{factoid['slug']}}">[{{factoid['slug']}}]</a></td>
           </tr>
         {% end %}
         </tbody>

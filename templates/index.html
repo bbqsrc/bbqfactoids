@@ -1,67 +1,59 @@
-<!DOCTYPE html>
+<!DOCTYPE html>{% autoescape None %}
 <html lang="en">
   <head>
     <meta charset='utf-8'>
     <title>Factoids</title>
     <link href='http://fonts.googleapis.com/css?family=Average+Sans|Esteban' rel='stylesheet' type='text/css'>
     <style>
+@font-face{font-family:'DoradaniRegular';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.svg#DoradaniRegular) format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'DoradaniSemibold';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.svg#DoradaniSemibold) format('svg');font-weight:bold;font-style:normal;}@font-face{font-family:'DoradaniItalic';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
+
       html, body {
-        padding: 0;
-        margin: 0;
-        background-color: black;
-      }
-      body {
-font-family: 'Average Sans', sans-serif;
+        font-family: Lucida Sans, sans-serif;
       }
 
-      .factoid-content {
-        word-wrap: pre-wrap;
-        font-family: "Esteban", serif;
-        font-size: 2em;
+      h1, h2 {
+font-family: 'DoradaniRegular', sans-serif;
       }
 
-      .factoid-link {
-        font-size: 1.2em;
-      }
-      h1 { margin: 0; padding: 0; }
-      a { color: #ddd; } 
-      #container {
-        color: #eee;
-text-align: center;
-background-color: #444;
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-margin: 0 auto;
-max-width: 920px;
-border: 2px solid gray;
-padding: 1em;
-      }
 
-    .more, .factoid {
-      margin-top: 2em;
-    }
-
-    .more-link {
-      border: 1px solid gray;
-      background-color: #0073ae;
-      color: white;
-      padding: 0.3em;
-      display: inline-block;
-    }
     </style>
   </head>
   <body>
     <div id="container">
-      <h1>Some kind of convincing title?</h1>
+      <h1>[TITLE]</h1>
+      <div class="header">
+        This is some website with factoids!
+      </div>
+      
+
       {% if error %}
       <pre>{{error}}</pre>
       {% else %}
-      <div class="factoid">
-        <div class='factoid-content'>{{content}}</div>
-        <div class='factoid-link'>
-          Source: <a href="{{url}}">{{url}}</a>
-        </div>
+      <h2>Slug</h2>
+      <pre>{{slug}}</pre>
+
+      <h2>Content</h2>
+      <div class='factoid-content'>{{content}}</div>
+      
+      <h2>Source</h2>
+      <div class='factoid-link'>
+        <a href="{{source_url}}">{{source_text}}</a>
+      </div>
+
+      {% if more_content != "" %}
+      <h2>More Info</h2>
+      <div class="summary">
+        {{more_content}}
+      </div>
       {% end %}
-    
+
+      {% if button_text != "" and button_url != "" %}
+      <h2>Button to another place</h2>
+      <a href="{{button_url}}">{{button_text}}</a>
+      {% end %}
+      {% end %}
+
+      <h2>Random next fact button</h2>
       <div class='more'>
         <a href="/" class='more-link'>More!</a>
       </div>

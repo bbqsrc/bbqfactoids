@@ -91,10 +91,10 @@ if __name__ == "__main__":
     application = Application([
         (r"/static/(.*)", StaticFileHandler, {"path": "./static"}),
     
-        (r"/", RandomFactoidHandler),
-        (r"/random(?:\.(.+))?", RandomFactoidHandler),
         (r"/all(?:\.(.+))?", AllFactoidHandler),
+        (r"/random(?:\.(.+))?", RandomFactoidHandler),
         (r"/(.+?)(?:\.(.+))?", FactoidHandler),
+        (r"/", RandomFactoidHandler),
     ])
     
     '''
@@ -103,5 +103,5 @@ if __name__ == "__main__":
         (r"/admin/factoids", AdminFactoidHandler)
         '''
     
-    application.listen(options.port)
+    application.listen(options.port, xheaders=True)
     tornado.ioloop.IOLoop.instance().start()
