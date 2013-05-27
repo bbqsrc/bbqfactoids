@@ -3,7 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <title>Factoids</title>
-    <link href='http://fonts.googleapis.com/css?family=Average+Sans|Esteban' rel='stylesheet' type='text/css'>
+    <script src="/static/jquery-1.10.0.min.js"></script>
     <style>
 @font-face{font-family:'DoradaniRegular';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.svg#DoradaniRegular) format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'DoradaniSemibold';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.svg#DoradaniSemibold) format('svg');font-weight:bold;font-style:normal;}@font-face{font-family:'DoradaniItalic';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
 
@@ -14,7 +14,7 @@
       }
 
       h1, h2 {
-font-family: 'DoradaniRegular', sans-serif;
+        font-family: 'DoradaniRegular', sans-serif;
       }
 
       #header, #body, #footer {
@@ -119,17 +119,25 @@ text-decoration: none;
             </p>
           </div>
           
-          {% if more_content != "" %}
-          <button class="btn">Read more</button>
-          <div class="more-content">
+          {% if more_content != "" or (button_url != "" and button_text != "") %}
+          <div>
+            <button id="read-more" class="btn">Read more</button>
+          </div>
+
+          <div style="display: none" class="more-content">
+            {% if more_content != "" %}
             <p>
               {{"</p><p>".join(more_content.strip().split('\n'))}}
             </p>
-          </div>
-          {% end %}
+            {% end %}
+            
+            {% if button_url != "" and button_text != "" %}
+            <div>
+              <a class="btn" href="{{button_url}}">{{button_text}}</a>
+            </div>
+            {% end %}
 
-          {% if button_url != "" and button_text != "" %}
-          <a class="btn" href="{{button_url}}">{{button_text}}</a>
+          </div>
           {% end %}
 
           <p><a class="btn random-btn" href="/">Show me another copyright fact!</a></p>
@@ -143,5 +151,9 @@ text-decoration: none;
       </div>
     </div>
 
+    <script>$("#read-more").click(function() {
+      $("#read-more").parent().fadeOut(200);
+      $(".more-content").slideDown(200);
+    });</script>
   </body>
 </html>
