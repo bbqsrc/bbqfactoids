@@ -112,14 +112,16 @@ text-decoration: none;
       
       <div id='body'>
         <div class="content">
-          <p class='factoid-content'>
+          <div class='factoid-content'>
             {{content.strip()}}
             [<a href="{{source_url}}">{{source_text.strip()}}</a>]
-          </p>
+          </div>
           
           {% if more_content != "" %}
           <button class="btn">Read more</button>
-          <p>{{more_content}}</p>
+          <div class="more-content">
+            {{more_content}}
+          </div>
           {% end %}
 
           {% if button_url != "" and button_text != "" %}
