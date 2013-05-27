@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     application = Application([
         (r"/static/(.*)", StaticFileHandler, {"path": "./static"}),
-        (r"/(.+?)(?:\.(.+))?", FactoidHandler),
+        (r"/([^\.]+?)(?:\.(.+))?", FactoidHandler),
         (r"/", RandomFactoidHandler),
         (r"/random(?:\.(.+))?", RandomFactoidHandler),
         (r"/all(?:\.(.+))?", AllFactoidHandler),
