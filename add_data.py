@@ -12,11 +12,11 @@ slugs = []
 
 for line in csv.reader(open(sys.argv[1])):
     factoids.insert({
-        "content": line[0],
+        "content": "<p>%s</p>" % "</p><p>".join(line[0].split('\n')),
         "slug": line[1],
         "source_text": line[2],
         "source_url": line[3],
-        "more_content": line[4],
+        "more_content": "<p>%s</p>" % "</p><p>".join(line[4].split('\n')),
         "button_text": line[5],
         "button_url": line[6]
     }, safe=True)
