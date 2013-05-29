@@ -84,7 +84,7 @@ $(function() {
       }
     });
 
-    $("#next-fact").on("click", function(e) {
+    $("#next-fact").click(function(e) {
         e.preventDefault();
         $.get("/random.json", function(data) {
             if (!data.error) {
