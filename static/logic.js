@@ -115,6 +115,7 @@ function loadFactoid(data) {
     }
     }, 200);
     $("#body").fadeIn(200);
+    $("#next-fact").removeAttr('disabled');
 }
 
 $(function() {
@@ -129,6 +130,7 @@ $(function() {
     
     if (window.JSON) { // IE7 gets a force load
         $("#next-fact").click(function(e) {
+            $(this).attr('disabled', true);
             e.preventDefault();
             $.get("/random.json", function(data) {
                 if (!data.error) {
