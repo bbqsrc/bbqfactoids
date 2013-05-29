@@ -1,14 +1,40 @@
 (function() {
 
 var cache = {}
+var html5 = !!window.history;
+var firstHashTrigger = false;
 
-$(window).on('statechange', function() {
-    var state = History.getState();
-    console.log(state.hash);
-    getFactoid(state.hash.substr(1), function(data) {
+$(window).on('hashchange', function(e) {
+    if (firstHashTrigger) {
+        firstHashTrigger = false;
+        return;
+    }
+    console.log(location.hash, e);
+    getFactoid(location.hash.substr(2), function(data) {
         loadFactoid(data);
     });
 });
+
+(function() {
+    if (html5) {
+        // Check that link isn't from IE
+        if (location.hash !== "") {
+            $(window).trigger('hashchange');
+            window.slug = location.hash.substr(2);
+        }
+        
+        history.replaceState({}, "", window.slug);
+        $(window).on('popstate', function(e) {
+            console.log(e, location.pathname);
+            getFactoid(location.pathname.substr(1), function(data) {
+                loadFactoid(data);
+            });
+        });
+    } else if (location.hash === "") {
+        location.href = "#/" + window.slug;
+        firstHashTrigger = true;
+    }
+})();
 
 function saveFactoid(data) {
     cache[data.slug] = data;
@@ -90,7 +116,13 @@ $(function() {
             if (!data.error) {
                 saveFactoid(data);
             }
-            History.pushState({}, "", data.slug);
+
+            if (html5) {
+                history.pushState({}, "", data.slug);
+                loadFactoid(data);
+            } else {
+                location.href = "#/" + data.slug;
+            }
         });
     });
 });
