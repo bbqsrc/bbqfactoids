@@ -6,7 +6,6 @@ var cache = {}
 var html5 = !!window.history.pushState;
 
 function onHashchange(e, callback) {
-    console.log(e);
     getFactoid(location.hash.substr(2), function(data) {
         loadFactoid(data);
         if (callback) {
@@ -30,7 +29,7 @@ $(function() {
         history.replaceState({}, "", window.slug);
         
         $(window).on('popstate', function(e) {
-            if (e.state == null) {
+            if (e.originalEvent.state == null) {
                 return; // page load
             }
 
