@@ -127,22 +127,24 @@ $(function() {
         btn.fadeIn(200);
       }
     });
-
-    $("#next-fact").click(function(e) {
-        e.preventDefault();
-        $.get("/random.json", function(data) {
-            if (!data.error) {
-                saveFactoid(data);
-            }
-
-            if (html5) {
-                history.pushState({}, "", data.slug);
-                loadFactoid(data);
-            } else {
-                location.href = "#/" + data.slug;
-            }
+    
+    if (window.JSON) { // IE7 gets a force load
+        $("#next-fact").click(function(e) {
+            e.preventDefault();
+            $.get("/random.json", function(data) {
+                if (!data.error) {
+                    saveFactoid(data);
+                }
+    
+                if (html5) {
+                    history.pushState({}, "", data.slug);
+                    loadFactoid(data);
+                } else {
+                    location.href = "#/" + data.slug;
+                }
+            });
         });
-    });
+    }
 });
 
 })();
