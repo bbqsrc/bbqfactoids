@@ -6,12 +6,11 @@ var cache = {}
 var html5 = !!window.history.pushState;
 var firstHashTrigger = false;
 
-function onHashchange(callback) {
+function onHashchange(e, callback) {
     if (firstHashTrigger) {
         firstHashTrigger = false;
         return;
     }
-    console.log(location.hash, e);
     getFactoid(location.hash.substr(2), function(data) {
         loadFactoid(data);
         if (callback) {
@@ -30,7 +29,7 @@ $(function() {
         firstHashTrigger = true;
         
         if (location.hash !== "") {
-            onHashchange(function() {
+            onHashchange(null, function() {
                 $("#body").css('visibility', '');
             });
             window.slug = location.hash.substr(2);
@@ -44,7 +43,6 @@ $(function() {
                 firstHashTrigger = false;
                 return;
             }
-            console.log(e, location.pathname);
             getFactoid(location.pathname.substr(1), function(data) {
                 loadFactoid(data);
                 setTimeout(function(){
@@ -56,6 +54,12 @@ $(function() {
         location.href = "#/" + window.slug;
         firstHashTrigger = true;
         $("#body").css('visibility', '');
+    } else {
+        onHashchange(null, function() {
+            setTimeout(function(){
+                $("#body").css('visibility', '');
+            }, 200);
+        });
     }
 });
 
