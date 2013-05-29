@@ -4,18 +4,9 @@ $.ajaxSetup({cache: false});
 
 var cache = {}
 var html5 = !!window.history.pushState;
-var firstHashTrigger = false;
-
-// Force a reload if using a proper URL and on IE
-if (!html5 && location.pathname !== "") {
-    location.href = location.protocol + "//" + location.host + "/#" + location.pathname
-}
 
 function onHashchange(e, callback) {
-    if (firstHashTrigger) {
-        firstHashTrigger = false;
-        return;
-    }
+    console.log(e);
     getFactoid(location.hash.substr(2), function(data) {
         loadFactoid(data);
         if (callback) {
@@ -25,14 +16,8 @@ function onHashchange(e, callback) {
 }
 
 $(function() {
-    if (!html5) {
-        $(window).on('hashchange', onHashchange);
-    }
-
     if (html5) {
         // Check that link isn't from IE
-        firstHashTrigger = true;
-        
         if (location.hash !== "") {
             onHashchange(null, function() {
                 $("#body").css('visibility', '');
@@ -43,11 +28,12 @@ $(function() {
         }
         
         history.replaceState({}, "", window.slug);
+        
         $(window).on('popstate', function(e) {
-            if (firstHashTrigger) {
-                firstHashTrigger = false;
-                return;
+            if (e.state == null) {
+                return; // page load
             }
+
             getFactoid(location.pathname.substr(1), function(data) {
                 loadFactoid(data);
                 setTimeout(function(){
@@ -55,17 +41,19 @@ $(function() {
                 }, 200);
             });
         });
-    } else if (location.hash === "") {
+    } else if (location.hash.substr(2) === "") {
         location.href = "#/" + window.slug;
-        firstHashTrigger = true;
-        $("#body").css('visibility', '');
-    } else {
+    }
+    
+    if (!html5) {
         onHashchange(null, function() {
             setTimeout(function(){
                 $("#body").css('visibility', '');
+                $(window).on('hashchange', onHashchange);
             }, 200);
         });
     }
+
 });
 
 function saveFactoid(data) {
