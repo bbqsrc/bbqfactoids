@@ -1,7 +1,7 @@
 (function() {
 
 var cache = {}
-var html5 = !!window.history;
+var html5 = !!window.history.pushState;
 var firstHashTrigger = false;
 
 $(window).on('hashchange', function(e) {

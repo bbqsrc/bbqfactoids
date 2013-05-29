@@ -38,6 +38,11 @@ class RandomFactoidHandler(tornado.web.RequestHandler):
         keys = self.application.config_collection.find_one({"id": "keys"})['keys']
         factoid = get_factoid(self.application.factoids_collection, keys=keys)
 
+        # No caching!
+        self.set_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.set_header("Pragma", "no-cache")
+        self.set_header("Expires", "0")
+
         if factoid is None:
             self.set_status(404)
             factoid = {"error": "No factoid found with that URL."}
