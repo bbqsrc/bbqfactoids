@@ -4,6 +4,8 @@
     <meta charset='utf-8'>
     <title>Factoids</title>
     <script src="/static/jquery-1.10.0.min.js"></script>
+    <script src="/static/jquery.history.js"></script>
+    <script src="/static/logic.js"></script>
     <style>
 @font-face{font-family:'DoradaniRegular';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.svg#DoradaniRegular) format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'DoradaniSemibold';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.svg#DoradaniSemibold) format('svg');font-weight:bold;font-style:normal;}@font-face{font-family:'DoradaniItalic';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
 
@@ -112,35 +114,34 @@ text-decoration: none;
       
       <div id='body'>
         <div class="content">
+          {% if error %}
           <div class='factoid-content'>
-            <p>
+            <div id='content'>{{error}}</div>
+          </div>
+          {% else %}
+          <div class='factoid-content'>
+            <p id='content'>
               {{"</p><p>".join(content.strip().split('\n'))}}
-              [<a href="{{source_url}}">{{source_text.strip()}}</a>]
+              [<a id="source" href="{{source_url}}">{{source_text.strip()}}</a>]
             </p>
           </div>
           
-          {% if more_content != "" or (button_url != "" and button_text != "") %}
-          <div>
+          <div{% if more_content == "" %} style="display: none"{% end %}>
             <button id="read-more" class="btn">Read more</button>
           </div>
-
-          <div style="display: none" class="more-content">
-            {% if more_content != "" %}
+          
+          <div id="more_content" style="display:none"> 
             <p>
               {{"</p><p>".join(more_content.strip().split('\n'))}}
             </p>
-            {% end %}
-            
-            {% if button_url != "" and button_text != "" %}
-            <div>
-              <a class="btn" href="{{button_url}}">{{button_text}}</a>
-            </div>
-            {% end %}
-
           </div>
-          {% end %}
+            
+          <div id="more_button"{% if button_url == "" or button_text == "" or more_content != "" %} style="display: none"{% end %}>
+            <a class="btn" id="button" href="{{button_url}}">{{button_text}}</a>
+          </div>
 
-          <p><a class="btn random-btn" href="/">Show me another copyright fact!</a></p>
+          {% end %}
+          <p><a class="btn random-btn" id="next-fact" href="/">Show me another copyright fact!</a></p>
         </div>
       </div>
       
@@ -151,9 +152,6 @@ text-decoration: none;
       </div>
     </div>
 
-    <script>$("#read-more").click(function() {
-      $("#read-more").parent().fadeOut(200);
-      $(".more-content").slideDown(200);
-    });</script>
+    <script></script>
   </body>
 </html>
