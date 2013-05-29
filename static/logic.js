@@ -4,7 +4,7 @@ var cache = {}
 
 $(window).on('statechange', function() {
     var state = History.getState();
-    console.log(state);
+    console.log(state.hash);
     getFactoid(state.hash.substr(1), function(data) {
         loadFactoid(data);
     });
@@ -71,7 +71,7 @@ function loadFactoid(data) {
     }, 200);
     $("#body").fadeIn(200);
 
-    console.log(data);
+    console.log(data.slug);
 }
 
 $(function() {
