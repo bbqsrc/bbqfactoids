@@ -1,10 +1,12 @@
 (function() {
 
+$.ajaxSetup({cache: false});
+
 var cache = {}
 var html5 = !!window.history.pushState;
 var firstHashTrigger = false;
 
-$(window).on('hashchange', function(e) {
+function onHashchange(callback) {
     if (firstHashTrigger) {
         firstHashTrigger = false;
         return;
@@ -12,29 +14,50 @@ $(window).on('hashchange', function(e) {
     console.log(location.hash, e);
     getFactoid(location.hash.substr(2), function(data) {
         loadFactoid(data);
+        if (callback) {
+            callback();
+        }
     });
-});
+}
 
-(function() {
+$(function() {
+    if (!html5) {
+        $(window).on('hashchange', onHashchange);
+    }
+
     if (html5) {
         // Check that link isn't from IE
+        firstHashTrigger = true;
+        
         if (location.hash !== "") {
-            $(window).trigger('hashchange');
+            onHashchange(function() {
+                $("#body").css('visibility', '');
+            });
             window.slug = location.hash.substr(2);
+        } else {
+            $("#body").css('visibility', '');
         }
         
         history.replaceState({}, "", window.slug);
         $(window).on('popstate', function(e) {
+            if (firstHashTrigger) {
+                firstHashTrigger = false;
+                return;
+            }
             console.log(e, location.pathname);
             getFactoid(location.pathname.substr(1), function(data) {
                 loadFactoid(data);
+                setTimeout(function(){
+                    $("#body").css('visibility', '');
+                }, 200);
             });
         });
     } else if (location.hash === "") {
         location.href = "#/" + window.slug;
         firstHashTrigger = true;
+        $("#body").css('visibility', '');
     }
-})();
+});
 
 function saveFactoid(data) {
     cache[data.slug] = data;
@@ -96,8 +119,6 @@ function loadFactoid(data) {
     }
     }, 200);
     $("#body").fadeIn(200);
-
-    console.log(data.slug);
 }
 
 $(function() {
