@@ -9,7 +9,7 @@
       <script src="/static/jquery.ba-hashchange.min.js"></script>
     <![endif]-->
     <script>
-      if (!history.pushState && location.pathname !== "") {
+      if (!history.pushState && location.pathname !== "/") {
           location.href = location.protocol + "//" + location.host + "/#" + location.pathname;
       }
       var slug = "{{slug}}";
