@@ -6,6 +6,11 @@ var cache = {}
 var html5 = !!window.history.pushState;
 var firstHashTrigger = false;
 
+// Force a reload if using a proper URL and on IE
+if (!html5 && location.pathname !== "") {
+    location.href = location.protocol + "//" + location.host + "/#" + location.pathname
+}
+
 function onHashchange(e, callback) {
     if (firstHashTrigger) {
         firstHashTrigger = false;
