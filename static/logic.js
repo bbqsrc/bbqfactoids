@@ -122,7 +122,6 @@ function loadFactoid(data) {
 }
 
 $(function() {
-    setTweetButton()
     
     $("#read-more").click(function() {
       $("#read-more").parent().fadeOut(200);
@@ -155,6 +154,10 @@ $(function() {
     $("#hot-pink-time").click(hotPinkTimeOn);
 });
 
+$(window).on('load', function() {
+    setTweetButton();
+});
+
 var hotPinkTime = false;
 var interval = null;
 
@@ -170,6 +173,7 @@ function generateTweetButton(urlSlug) {
         content = content.substring(0, availableSpace - 1) + ellipsis;
     }
 
+    console.log(window.twttr);
     twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], null, {
         text: content + " " + url,
         dnt: true,
@@ -178,7 +182,7 @@ function generateTweetButton(urlSlug) {
 }
 
 function setTweetButton() {
-    var tweet = generateTweetButton(window.slug);
+    generateTweetButton(window.slug);
 }
 
 function hotPinkTimeOn(e) {
