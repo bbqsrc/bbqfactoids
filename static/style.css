@@ -33,6 +33,21 @@ h1, h2 {
   color: white;
   background-color: #434445;
   font-family: 'DoradaniRegular', sans-serif;
+  line-height: 1.3em;
+}
+
+#content {
+  font-size: 130%;
+  margin: 1em;
+  text-align: center;
+}
+
+#blurb, #content, #more_content {
+  line-height: 1.3em;
+}
+
+.btn-container {
+  text-align: center;
 }
 
 #header {

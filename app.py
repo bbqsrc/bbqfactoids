@@ -45,7 +45,10 @@ class RandomFactoidHandler(tornado.web.RequestHandler):
 
         if factoid is None:
             self.set_status(404)
-            factoid = {"error": "No factoid found with that URL."}
+            factoid = {
+                 "slug": slug,
+                 "error": "No factoid found with that URL."
+            }
         else:
             factoid['error'] = None
 
@@ -62,7 +65,10 @@ class FactoidHandler(tornado.web.RequestHandler):
 
         if factoid is None:
             self.set_status(404)
-            factoid = {"error": "No factoid found with that URL."}
+            factoid = {
+                 "slug": slug,
+                 "error": "No factoid found with that URL."
+            }
         else:
             factoid['error'] = None
 

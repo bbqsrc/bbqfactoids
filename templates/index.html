@@ -33,6 +33,7 @@
           <div class='factoid-content'>
             <div id='content'>{{error}}</div>
           </div>
+          <p class="btn-container"><a class="btn random-btn" href="/">Show me a copyright fact!</a></p>
           {% else %}
           <div class='factoid-content'>
             <p style="font-size: 90%; color: #1E8FBB;">
@@ -44,7 +45,7 @@
             </p>
           </div>
           
-          <div{% if more_content == "" %} style="display: none"{% end %}>
+          <div class="btn-container"{% if more_content == "" %} style="display: none"{% end %}>
             <button id="read-more" class="btn">Read more</button>
           </div>
           
@@ -54,12 +55,12 @@
             </p>
           </div>
             
-          <div id="more_button"{% if button_url == "" or button_text == "" or more_content != "" %} style="display: none"{% end %}>
+          <div id="more_button" class="btn-container"{% if button_url == "" or button_text == "" or more_content != "" %} style="display: none"{% end %}>
             <a class="btn" id="button" href="{{button_url}}">{{button_text}}</a>
           </div>
 
+          <p class="btn-container"><a class="btn random-btn" id="next-fact" href="/random">Show me another copyright fact!</a></p>
           {% end %}
-          <p><a class="btn random-btn" id="next-fact" href="/random">Show me another copyright fact!</a></p>
         </div>
       </div>
       
