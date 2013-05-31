@@ -113,3 +113,7 @@ h1, h2 {
   text-decoration: none;
 }
 
+.twitter-hashtag-button,
+.cc-by {
+  vertical-align: middle;
+}

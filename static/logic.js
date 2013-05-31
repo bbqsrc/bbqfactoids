@@ -90,29 +90,32 @@ function getFactoid(slug, callback) {
 function loadFactoid(data) {
     $("#body").fadeOut(200);
     setTimeout(function() {
-    $("#more_content").hide();
-
-    $("#content").replaceWith(
-        $("<p id='content'>" + data.content.split("\n").join("</p><p>") + 
-            " [<a href='"+ data.source_url +"'>"+ data.source_text +"</a>]</p>")
-    );
-
-    if (data.more_content) {
-        $("#read-more").parent().show();
-        $("#more_content").empty().append(
-            $("<p id='more_content'>" + data.more_content.split("\n").join("</p><p>") + "</p>")
+        $("#more_content").hide();
+    
+        $("#content").replaceWith(
+            $("<p id='content'>" + data.content.split("\n").join("</p><p>") + 
+                " [<a href='"+ data.source_url +"'>"+ data.source_text +"</a>]</p>")
         );
-    } else {
-        $("#more_content").empty().hide();
-        $("#read-more").parent().hide();
-    }
-
-    if (data.button_text && data.button_url && !data.more_content) {
-        $("#button").attr('href', data.button_url).html(data.button_text);
-        $("#more_button").show();
-    } else {
-        $("#more_button").hide();
-    }
+    
+        if (data.more_content) {
+            $("#read-more").parent().show();
+            $("#more_content").empty().append(
+                $("<p id='more_content'>" + data.more_content.split("\n").join("</p><p>") + "</p>")
+            );
+        } else {
+            $("#more_content").empty().hide();
+            $("#read-more").parent().hide();
+        }
+        
+        if (data.button_text && data.button_url) {
+            $("#button").attr('href', data.button_url).html(data.button_text);
+        }
+    
+        if (data.button_text && data.button_url && !data.more_content) {
+            $("#more_button").show();
+        } else {
+            $("#more_button").hide();
+        }
     }, 200);
     $("#body").fadeIn(200);
     $("#next-fact").removeAttr('disabled');
