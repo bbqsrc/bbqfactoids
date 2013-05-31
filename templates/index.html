@@ -4,128 +4,29 @@
     <meta charset='utf-8'>
     <title>Fair Copyright</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script>if(!history.pushState&&location.pathname!=="/")location.href=location.protocol+"//"+location.host+"/#"+location.pathname;var slug="{{slug}}"</script>
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
     <script src="/static/jquery-1.10.0.min.js"></script>
     <!--[if lt IE 9]>
       <script src="/static/json3.js"></script>
       <script src="/static/jquery.ba-hashchange.min.js"></script>
     <![endif]-->
-    <script>
-      if (!history.pushState && location.pathname !== "/") {
-          location.href = location.protocol + "//" + location.host + "/#" + location.pathname;
-      }
-      var slug = "{{slug}}";
-    </script>
     <script src="/static/logic.js"></script>
-    <style>
-@font-face{font-family:'DoradaniRegular';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg-webfont.svg#DoradaniRegular) format('svg');font-weight:normal;font-style:normal;}@font-face{font-family:'DoradaniSemibold';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_sb-webfont.svg#DoradaniSemibold) format('svg');font-weight:bold;font-style:normal;}@font-face{font-family:'DoradaniItalic';src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot);src:url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.woff) format('woff'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(http://digital.org.au/sites/digital.org.au/themes/ada/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
-
-      html, body {
-        font-family: Lucida Sans, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-
-      h1, h2 {
-        font-family: 'DoradaniRegular', sans-serif;
-      }
-
-      #footer a {
-        color: #eeeeff;
-      }
-
-      #header, #body, #footer {
-        width: 100%;
-        background-color: white;
-      }
-
-      #header, #footer {
-        background-color: #eee;
-      }
-
-      #header {
-        font-size: 120%;
-        color: #565656;
-        background-color: #f4f4f4;
-        font-size: 1.786em;
-        line-height: 1.28em;
-        font-family: 'DoradaniRegular', sans-serif;
-      }
-
-      #footer {
-        color: white;
-        font-size: .8em;
-        background-color: #434445;
-      }
-
-      .content {
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 0.5em;
-      }
-
-      #body .content {
-        padding: 2em 1em;
-      }
-
-      .btn.random-btn {
-color: #ffffff;
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-background-color: #e75722;
-background-image: -moz-linear-gradient(top, #f19d7e, #d84b17);
-background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f19d7e), to(#d84b17));
-background-image: -webkit-linear-gradient(top, #f19d7e, #d84b17);
-background-image: -o-linear-gradient(top, #f19d7e, #d84b17);
-background-image: linear-gradient(to bottom, #f19d7e, #d84b17);
-background-repeat: repeat-x;
-border-color: #d84b17 #d84b17 #ad6704;
-border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
-filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-      }
-
-      .btn {
-display: inline-block;
-padding: 4px 12px;
-margin-bottom: 0;
-font-size: 14px;
-line-height: 20px;
-color: #333333;
-text-align: center;
-text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-vertical-align: middle;
-cursor: pointer;
-background-color: #f5f5f5;
-background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
-background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
-background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
-background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
-background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
-background-repeat: repeat-x;
-border: 1px solid #cccccc;
-border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-border-bottom-color: #b3b3b3;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
-filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
--webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
--moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
-text-decoration: none;
-      }
-
-    </style>
   </head>
   <body>
     <div id="container">
       <div id="header">
         <div class="content">
-          Copywrong.
+          #COPYWRONG
         </div>
       </div>
       
+      <div id="blurb">
+        <div class="content">
+          Australia's copyright laws are out of touch with the digital world. They're designed to balance protections for creators alongside fair and reasonable access to works, but in the digital age they're falling behind. At the moment, they're more #copywrong than #copyright.
+        </div>
+      </div>
+
       <div id='body' style="visibility: hidden">
         <div class="content">
           {% if error %}
@@ -134,6 +35,9 @@ text-decoration: none;
           </div>
           {% else %}
           <div class='factoid-content'>
+            <p style="font-size: 90%; color: #1E8FBB;">
+              Under today's copyright laws:
+            </p>
             <p id='content'>
               {{"</p><p>".join(content.strip().split('\n'))}}
               [<a id="source" href="{{source_url}}">{{source_text.strip()}}</a>]
@@ -163,6 +67,7 @@ text-decoration: none;
         <div class="content">
           <a style="vertical-align: middle" href="https://twitter.com/intent/tweet?button_hashtag=copywrong&text=Blah%20blah%20text%20etc" class="twitter-hashtag-button" data-related="Aus_Digital" data-url="http://faircopyright.com.au" data-dnt="true">Tweet #copywrong</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/deed.en_US"><img alt="Creative Commons License" style="border-width:0;vertical-align:bottom" src="http://i.creativecommons.org/l/by/3.0/au/80x15.png" /></a>
           <div style="float: right"> 
             <span style="vertical-align: middle">Australian Digital Alliance
             &bull;

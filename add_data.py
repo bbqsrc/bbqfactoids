@@ -12,15 +12,15 @@ slugs = []
 
 for line in csv.reader(open(sys.argv[1])):
     factoids.insert({
-        "content": line[0],
-        "slug": line[1],
-        "source_text": line[2],
-        "source_url": line[3],
-        "more_content": line[4],
-        "button_text": line[5],
-        "button_url": line[6]
+        "content": line[0].strip(),
+        "slug": line[1].strip(),
+        "source_text": line[2].strip(),
+        "source_url": line[3].strip(),
+        "more_content": line[4].strip(),
+        "button_text": line[5].strip(),
+        "button_url": line[6].strip()
     }, safe=True)
-    slugs.append(line[1])
+    slugs.append(line[1].strip())
 
 
 config.insert({"id": "keys", "keys": slugs}, safe=True)
