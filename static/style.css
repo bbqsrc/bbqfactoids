@@ -16,8 +16,10 @@ html, body {
   padding: 0;
 }
 
-h1, h2 {
-  font-family: 'DoradaniRegular', sans-serif;
+h1 {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
 }
 
 #footer a {
@@ -27,6 +29,7 @@ h1, h2 {
 #header, #blurb, #body, #footer {
   width: 100%;
   background-color: #f4f4f4;
+  text-align: center;
 }
 
 #blurb {
@@ -50,11 +53,13 @@ h1, h2 {
   text-align: center;
 }
 
-#header {
+#header,
+#header a,
+#header a:visited {
   font-size: 120%;
   color: white;
+  text-decoration: none;
   background-color: #2f2f2f;
-  font-size: 1.786em;
   line-height: 1.28em;
   font-family: 'DoradaniSemibold', sans-serif;
   font-weight: bold;
@@ -64,6 +69,7 @@ h1, h2 {
   color: white;
   font-size: .8em;
   background-color: #434445;
+  text-align: left;
 }
 
 .content {

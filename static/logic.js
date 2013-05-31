@@ -132,7 +132,7 @@ $(function() {
     });
     
     if (window.JSON) { // IE7 gets a force load
-        $("#next-fact").click(function(e) {
+        $("#next-fact, #header a").click(function(e) {
             $(this).attr('disabled', true);
             e.preventDefault();
             $.get("/random.json", function(data) {
