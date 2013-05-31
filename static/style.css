@@ -10,6 +10,16 @@ src:url(/static/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'
 src:url(/static/fonts/doradani_rg_it-webfont.eot);
 src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(/static/fonts/doradani_rg_it-webfont.woff) format('woff'),url(/static/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(/static/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
 
+@media all and (max-width: 499px) {
+  #content {
+    margin: 1em 0em;
+  }
+
+  #blurb {
+    font-size: 75%;
+  }
+}
+
 html, body {
   font-family: Lucida Sans, sans-serif;
   margin: 0;
@@ -50,12 +60,6 @@ h1 {
   margin: 1em;
   text-align: center;
 }
-@media all and (max-width: 499px) {
-  #content {
-    margin: 1em 0em;
-  }
-}
-
 
 #blurb, #content, #more_content {
   line-height: 1.3em;
