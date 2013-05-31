@@ -149,25 +149,46 @@ $(function() {
         });
     }
 
-    $("#hot-pink-time").click(function(e) {
-        e.preventDefault();
-        $(this).css('color', 'fuchsia')
-            .off('click');
+    $("#hot-pink-time").click(hotPinkTimeOn);
 
-        var pink = false;
-
-        setInterval(function() {
-            $("#content").css({
-                'position': 'relative',
-                'color': pink ? 'black' : 'fuchsia',
-                'left': parseInt(Math.random() * 40) - 20,
-                'top': parseInt(Math.random() * 40) - 20,
-                'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'
-            });
-            pink = !pink;
-        }, 100);
-    });
 });
 
+var hotPinkTime = false;
+var interval = null;
+
+function hotPinkTimeOn(e) {
+    e.preventDefault();
+    interval = setInterval(function() {
+        $("#content").css({
+            'position': 'relative',
+            'color': hotPinkTime ? 'black' : 'fuchsia',
+            'left': parseInt(Math.random() * 40) - 20,
+            'top': parseInt(Math.random() * 40) - 20,
+            'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'
+        });
+        hotPinkTime = !hotPinkTime;
+    }, 100);
+    
+    $("#hot-pink-time").css('color', 'fuchsia')
+        .off('click').click(hotPinkTimeOff);
+    console.log('bar');
+}
+
+function hotPinkTimeOff(e) {
+    e.preventDefault();
+    console.log('foo');
+    clearInterval(interval);
+    hotPinkTime = false;
+    $("#content").css({
+        'position': 'static',
+        'color': '',
+        'left': '',
+        'top': '',
+        'transform': ''
+    });
+    
+    $("#hot-pink-time").css('color', '')
+        .off('click').click(hotPinkTimeOn);
+}
 
 })();
