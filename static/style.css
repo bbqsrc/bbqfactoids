@@ -1,0 +1,115 @@
+@font-face{font-family:'DoradaniRegular';
+src:url(/static/fonts/doradani_rg-webfont.eot);
+src:url(/static/fonts/doradani_rg-webfont.eot?#iefix) format('embedded-opentype'),url(/static/fonts/doradani_rg-webfont.woff) format('woff'),url(/static/fonts/doradani_rg-webfont.ttf) format('truetype'),url(/static/fonts/doradani_rg-webfont.svg#DoradaniRegular) format('svg');font-weight:normal;font-style:normal;}
+
+@font-face{font-family:'DoradaniSemibold';
+src:url(/static/fonts/doradani_sb-webfont.eot);
+src:url(/static/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'),url(/static/fonts/doradani_sb-webfont.woff) format('woff'),url(/static/fonts/doradani_sb-webfont.ttf) format('truetype'),url(/static/fonts/doradani_sb-webfont.svg#DoradaniSemibold) format('svg');font-weight:bold;font-style:normal;}
+
+@font-face{font-family:'DoradaniItalic';
+src:url(/static/fonts/doradani_rg_it-webfont.eot);
+src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(/static/fonts/doradani_rg_it-webfont.woff) format('woff'),url(/static/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(/static/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
+
+html, body {
+  font-family: Lucida Sans, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  font-family: 'DoradaniRegular', sans-serif;
+}
+
+#footer a {
+  color: #eeeeff;
+}
+
+#header, #blurb, #body, #footer {
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+#blurb {
+  color: white;
+  background-color: #434445;
+  font-family: 'DoradaniRegular', sans-serif;
+}
+
+#header {
+  font-size: 120%;
+  color: white;
+  background-color: #2f2f2f;
+  font-size: 1.786em;
+  line-height: 1.28em;
+  font-family: 'DoradaniRegular', sans-serif;
+}
+
+#footer {
+  color: white;
+  font-size: .8em;
+  background-color: #434445;
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0.5em;
+}
+
+#body .content {
+  padding: 1.5em 1em 2em;
+}
+
+#blurb .content {
+  padding: 1em;
+}
+
+.btn.random-btn {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #e75722;
+  background-image: -moz-linear-gradient(top, #f19d7e, #d84b17);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f19d7e), to(#d84b17));
+  background-image: -webkit-linear-gradient(top, #f19d7e, #d84b17);
+  background-image: -o-linear-gradient(top, #f19d7e, #d84b17);
+  background-image: linear-gradient(to bottom, #f19d7e, #d84b17);
+  background-repeat: repeat-x;
+  border-color: #d84b17 #d84b17 #ad6704;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  border: 1px solid #cccccc;
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  border-bottom-color: #b3b3b3;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+}
+
