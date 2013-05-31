@@ -41,6 +41,7 @@ class RandomFactoidHandler(tornado.web.RequestHandler):
         if factoid is None:
             self.get(datatype)
             return
+        factoid['error'] = None
 
         # No caching!
         self.set_header("Cache-Control", "no-cache, no-store, must-revalidate")
