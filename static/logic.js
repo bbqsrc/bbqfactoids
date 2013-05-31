@@ -148,6 +148,26 @@ $(function() {
             });
         });
     }
+
+    $("#hot-pink-time").click(function(e) {
+        e.preventDefault();
+        $(this).css('color', 'fuchsia')
+            .off('click');
+
+        var pink = false;
+
+        setInterval(function() {
+            $("#content").css({
+                'position': 'relative',
+                'color': pink ? 'black' : 'fuchsia',
+                'left': parseInt(Math.random() * 40) - 20,
+                'top': parseInt(Math.random() * 40) - 20,
+                'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'
+            });
+            pink = !pink;
+        }, 100);
+    });
 });
+
 
 })();
