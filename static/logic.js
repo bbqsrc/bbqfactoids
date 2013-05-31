@@ -88,6 +88,7 @@ function getFactoid(slug, callback) {
 }
 
 function loadFactoid(data) {
+    window.slug = data.slug;
     $("#body").fadeOut(200);
     setTimeout(function() {
         $("#more_content").hide();
