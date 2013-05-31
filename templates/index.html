@@ -43,7 +43,9 @@
             </p>
             <p id='content'>
               {{"</p><p>".join(content.strip().split('\n'))}}
-              [<a id="source" href="{{source_url}}">{{source_text.strip()}}</a>]
+            </p>
+            <p id='source-container'>
+              Source: <a id="source" href="{{source_url}}">{{source_text.strip()}}</a>
             </p>
           </div>
           

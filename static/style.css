@@ -29,6 +29,9 @@ h1 {
 #header, #blurb, #body, #footer {
   width: 100%;
   background-color: #f4f4f4;
+}
+
+#body {
   text-align: center;
 }
 
@@ -51,6 +54,7 @@ h1 {
 
 .btn-container {
   text-align: center;
+  display: inline-block;
 }
 
 #header,
@@ -64,6 +68,27 @@ h1 {
   font-family: 'DoradaniSemibold', sans-serif;
   font-weight: bold;
 }
+
+#source-container {
+  text-align: center;
+  font-size: 75%;
+}
+
+#source {
+  color: #1E8FBB;
+  text-decoration: none;
+  padding: 0.1em 0.2em;
+}
+
+#source:visited {
+  color: #0073AE;
+}
+
+#source:hover {
+  color: white;
+  background-color: #0073AE;
+}
+
 
 #footer {
   color: white;

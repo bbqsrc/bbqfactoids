@@ -92,13 +92,12 @@ function loadFactoid(data) {
     setTimeout(function() {
         $("#more_content").hide();
     
-        $("#content").replaceWith(
-            $("<p id='content'>" + data.content.split("\n").join("</p><p>") + 
-                " [<a href='"+ data.source_url +"'>"+ data.source_text +"</a>]</p>")
-        );
+        $("#content").empty().append(data.content.split("\n").join("<br>"));
+
+        $("#source").attr("href", data.source_url).html(data.source_text);
     
         if (data.more_content) {
-            $("#read-more").parent().show();
+            $("#read-more").parent().css('display', 'inline-block');
             $("#more_content").empty().append(
                 $("<p id='more_content'>" + data.more_content.split("\n").join("</p><p>") + "</p>")
             );
@@ -112,7 +111,7 @@ function loadFactoid(data) {
         }
     
         if (data.button_text && data.button_url && !data.more_content) {
-            $("#more_button").show();
+            $("#more_button").css('display', 'inline-block');
         } else {
             $("#more_button").hide();
         }
