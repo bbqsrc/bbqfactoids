@@ -173,8 +173,7 @@ function generateTweetButton(urlSlug) {
         content = content.substring(0, availableSpace - 1) + ellipsis;
     }
 
-    console.log(window.twttr);
-    twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], null, {
+    twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], {
         text: content + " " + url,
         dnt: true,
         related: "Aus_Digital"

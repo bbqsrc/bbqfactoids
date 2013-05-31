@@ -87,6 +87,10 @@ h1 {
   display: inline;
 }
 
+#twitter iframe {
+  vertical-align: middle;
+}
+
 #source-container {
   text-align: center;
   font-size: 75%;
