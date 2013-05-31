@@ -47,6 +47,12 @@ h1 {
   margin: 1em;
   text-align: center;
 }
+@media all and (max-width: 499px) {
+  #content {
+    margin: 1em 0em;
+  }
+}
+
 
 #blurb, #content, #more_content {
   line-height: 1.3em;

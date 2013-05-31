@@ -171,12 +171,10 @@ function hotPinkTimeOn(e) {
     
     $("#hot-pink-time").css('color', 'fuchsia')
         .off('click').click(hotPinkTimeOff);
-    console.log('bar');
 }
 
 function hotPinkTimeOff(e) {
     e.preventDefault();
-    console.log('foo');
     clearInterval(interval);
     hotPinkTime = false;
     $("#content").css({
