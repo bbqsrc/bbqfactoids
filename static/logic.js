@@ -93,6 +93,7 @@ function loadFactoid(data) {
         $("#more_content").hide();
     
         $("#content").empty().append(data.content.split("\n").join("<br>"));
+        setTweetButton()
 
         $("#source").attr("href", data.source_url).html(data.source_text);
     
@@ -121,6 +122,8 @@ function loadFactoid(data) {
 }
 
 $(function() {
+    setTweetButton()
+    
     $("#read-more").click(function() {
       $("#read-more").parent().fadeOut(200);
       $("#more_content").slideDown(200);
@@ -150,11 +153,36 @@ $(function() {
     }
 
     $("#hot-pink-time").click(hotPinkTimeOn);
-
 });
 
 var hotPinkTime = false;
 var interval = null;
+
+function generateTweet(urlSlug) {
+    var content = $("#content").text(),
+        url = location.protocol + "//" + location.host + "/" + urlSlug,
+        hashtag = "#copywrong",
+        ellipsis = "…",
+        urlLength = 22,
+        availableSpace = 140 - urlLength - hashtag.length - 3;
+
+    if (content.length > availableSpace) {
+        content = content.substring(0, availableSpace - 1) + ellipsis;
+    }
+
+    return encodeURIComponent(content + " " + url);
+}
+
+function setTweetButton() {
+    var tweet = generateTweet(window.slug),
+        node = $(".twitter-hashtag-button");
+    console.log(tweet);
+    if (node.is('a')) {
+        node.attr('href', "https://twitter.com/intent/tweet?button_hashtag=copywrong&text=" + tweet);
+    } else if (node.is('iframe')) {
+        node.attr('src', "https://twitter.com/intent/tweet?button_hashtag=copywrong&text=" + tweet);
+    }
+}
 
 function hotPinkTimeOn(e) {
     e.preventDefault();
