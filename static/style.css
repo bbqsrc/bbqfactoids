@@ -22,6 +22,11 @@ src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-openty
   #blurb {
     font-size: 75%;
   }
+  
+  #header h1 {
+    padding: 0 !important;
+    font-size: 100% !important;
+  }
 }
 
 html, body {
@@ -78,6 +83,7 @@ h1 {
 #header a:visited {
   color: white;
   text-decoration: none;
+  vertical-align: bottom;
 }
 
 #header {
@@ -89,6 +95,11 @@ h1 {
   -webkit-box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
   -moz-box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
   box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
+}
+
+#header h1 {
+  padding: 0.5em 0em;
+  font-size: 200%;
 }
 
 #twitter {
