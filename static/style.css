@@ -10,7 +10,7 @@ src:url(/static/fonts/doradani_sb-webfont.eot?#iefix) format('embedded-opentype'
 src:url(/static/fonts/doradani_rg_it-webfont.eot);
 src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-opentype'),url(/static/fonts/doradani_rg_it-webfont.woff) format('woff'),url(/static/fonts/doradani_rg_it-webfont.ttf) format('truetype'),url(/static/fonts/doradani_rg_it-webfont.svg#DoradaniItalic) format('svg');font-weight:normal;font-style:italic;}
 
-@media all and (max-width: 499px) {
+@media all and (max-width: 767px) {
   #body .content {
     padding: 1.5em 0em 2em !important;
   }
