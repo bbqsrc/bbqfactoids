@@ -41,7 +41,8 @@ h1, h2 {
   background-color: #2f2f2f;
   font-size: 1.786em;
   line-height: 1.28em;
-  font-family: 'DoradaniRegular', sans-serif;
+  font-family: 'DoradaniSemibold', sans-serif;
+  font-weight: bold;
 }
 
 #footer {
