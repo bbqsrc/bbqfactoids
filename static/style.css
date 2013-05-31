@@ -40,6 +40,9 @@ h1 {
   background-color: #434445;
   font-family: 'DoradaniRegular', sans-serif;
   line-height: 1.3em;
+  -webkit-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.1);
 }
 
 #content {
@@ -63,16 +66,21 @@ h1 {
   display: inline-block;
 }
 
-#header,
 #header a,
 #header a:visited {
-  font-size: 120%;
   color: white;
   text-decoration: none;
+}
+
+#header {
   background-color: #2f2f2f;
   line-height: 1.28em;
   font-family: 'DoradaniSemibold', sans-serif;
   font-weight: bold;
+  font-size: 120%;
+  -webkit-box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0px -2px 2px 1px rgba(0,0,0,0.1);
 }
 
 #source-container {
