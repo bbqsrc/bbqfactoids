@@ -158,7 +158,7 @@ $(function() {
 var hotPinkTime = false;
 var interval = null;
 
-function generateTweet(urlSlug) {
+function generateTweetButton(urlSlug) {
     var content = $("#content").text(),
         url = location.protocol + "//" + location.host + "/" + urlSlug,
         hashtag = "#copywrong",
@@ -170,18 +170,15 @@ function generateTweet(urlSlug) {
         content = content.substring(0, availableSpace - 1) + ellipsis;
     }
 
-    return encodeURIComponent(content + " " + url);
+    twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], null, {
+        text: content + " " + url,
+        dnt: true,
+        related: "Aus_Digital"
+    });
 }
 
 function setTweetButton() {
-    var tweet = generateTweet(window.slug),
-        node = $(".twitter-hashtag-button");
-    console.log(tweet);
-    if (node.is('a')) {
-        node.attr('href', "https://twitter.com/intent/tweet?button_hashtag=copywrong&text=" + tweet);
-    } else if (node.is('iframe')) {
-        node.attr('src', "https://twitter.com/intent/tweet?button_hashtag=copywrong&text=" + tweet);
-    }
+    var tweet = generateTweetButton(window.slug);
 }
 
 function hotPinkTimeOn(e) {
