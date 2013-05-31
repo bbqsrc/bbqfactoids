@@ -12,11 +12,11 @@ src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-openty
 
 @media all and (max-width: 499px) {
   #body .content {
-    padding: 1.5em 0em 2em;
+    padding: 1.5em 0em 2em !important;
   }
 
   #content {
-    margin: 1em 0em;
+    margin: 1em 0em !important;
   }
 
   #blurb {
