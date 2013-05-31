@@ -13,7 +13,7 @@ slugs = []
 for line in csv.reader(open(sys.argv[1])):
     factoids.insert({
         "content": line[0].strip(),
-        "slug": line[1].strip(),
+        "slug": line[1].strip().lower(),
         "source_text": line[2].strip(),
         "source_url": line[3].strip(),
         "more_content": line[4].strip(),
