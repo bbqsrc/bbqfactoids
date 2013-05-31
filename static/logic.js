@@ -182,6 +182,7 @@ function generateTweetButton(urlSlug) {
 }
 
 function setTweetButton() {
+    $("#twitter").empty();
     generateTweetButton(window.slug);
 }
 
