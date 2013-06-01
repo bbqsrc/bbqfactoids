@@ -123,6 +123,7 @@ h1 {
 #all-list {
   list-style: none;
   text-align: left;
+  padding: 0;
 }
 
 #all-list li {
