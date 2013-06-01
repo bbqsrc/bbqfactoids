@@ -170,7 +170,7 @@ function generateTweetButton(urlSlug) {
         url = location.protocol + "//" + location.host + "/" + urlSlug,
         hashtag = "#copywrong",
         ellipsis = "…",
-        urlLength = 22,
+        urlLength = 20,
         availableSpace = 140 - urlLength - hashtag.length - 3;
 
     if (content.length > availableSpace) {
