@@ -151,7 +151,10 @@ $(function() {
             });
         });
     }
-
+    $("#about-button").click(function(e) {
+        e.preventDefault();
+        $("#about-this-site").toggle();
+    });
     $("#hot-pink-time").click(hotPinkTimeOn);
 });
 
