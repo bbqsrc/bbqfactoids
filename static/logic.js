@@ -101,7 +101,7 @@ function loadFactoid(data) {
         if (data.more_content) {
             $("#read-more").parent().css('display', 'inline-block');
             $("#more_content").empty().append(
-                $("<p id='more_content'>" + data.more_content.split("\n").join("</p><p>") + "</p>")
+                $("<p>" + data.more_content.split("\n").join("</p><p>") + "</p>")
             );
         } else {
             $("#more_content").empty().hide();
@@ -177,11 +177,13 @@ function generateTweetButton(urlSlug) {
         content = content.substring(0, availableSpace - 1) + ellipsis;
     }
 
-    twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], {
-        text: content + " " + url,
-        dnt: true,
-        related: "Aus_Digital"
-    });
+    try {
+      twttr.widgets.createHashtagButton("copywrong", $("#twitter")[0], {
+          text: content + " " + url,
+          dnt: true,
+          related: "Aus_Digital"
+      });
+    } catch(e) {}
 }
 
 function setTweetButton() {

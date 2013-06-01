@@ -45,8 +45,15 @@
             <p id='content'>
               {{"</p><p>".join(content.strip().split('\n'))}}
             </p>
+            
+            <div id="more_content" style="display:none"> 
+              <p>
+                {{"</p><p>".join(more_content.strip().split('\n'))}}
+              </p>
+            </div>
+            
             <p id='source-container'>
-              Source: <a id="source" href="{{source_url}}">{{source_text.strip()}}</a>
+              Source: <a id="source" class='source' href="{{source_url}}">{{source_text.strip()}}</a>
             </p>
           </div>
           
@@ -54,12 +61,6 @@
             <button id="read-more" class="btn">Read more</button>
           </div>
           
-          <div id="more_content" style="display:none"> 
-            <p>
-              {{"</p><p>".join(more_content.strip().split('\n'))}}
-            </p>
-          </div>
-            
           <div id="more_button" class="btn-container"{% if button_url == "" or button_text == "" or more_content != "" %} style="display: none"{% end %}>
             <a class="btn" id="button" href="{{button_url}}">{{button_text}}</a>
           </div>
@@ -79,9 +80,11 @@
             <span style="vertical-align: middle">
               <a href="http://digital.org.au">Australian Digital Alliance</a>
               &bull;
+              <a href="/all">All Facts</a>
+              &bull;
               <a id="about-button" href="#about-this-site">About This Site</a>
               &bull;
-              <a href="#" id="hot-pink-time">Hot Pink Time</a>
+              <a href="#" id="hot-pink-time">Copycrazy</a>
             </span>
           </div>
           <div style="clear:both"></div>

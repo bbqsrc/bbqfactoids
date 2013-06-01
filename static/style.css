@@ -120,17 +120,36 @@ h1 {
   font-size: 75%;
 }
 
-#source {
+#all-list {
+  list-style: none;
+  text-align: left;
+}
+
+#all-list li {
+  padding: 1em;
+  border-top: 1px solid #ddd;
+}
+
+#all-list li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+#all-list li:last-child {
+  padding-bottom: 0;
+}
+
+.source {
   color: #1E8FBB;
   text-decoration: none;
   padding: 0.1em 0.2em;
 }
 
-#source:visited {
-  color: #0073AE;
+.source:visited {
+  color: .0073AE;
 }
 
-#source:hover {
+.source:hover {
   color: white;
   background-color: #0073AE;
 }

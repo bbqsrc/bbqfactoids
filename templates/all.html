@@ -1,78 +1,67 @@
-<!DOCTYPE html>
+<!DOCTYPE html>{% autoescape None %}
 <html lang="en">
   <head>
     <meta charset='utf-8'>
-    <title>Factoids</title>
-    <link href='http://fonts.googleapis.com/css?family=Average+Sans|Esteban' rel='stylesheet' type='text/css'>
-    <style>
-      html, body {
-        padding: 0;
-        margin: 0;
-        background-color: black;
-      }
-      body {
-font-family: 'Average Sans', sans-serif;
-      }
-
-      .factoid-content {
-        word-wrap: pre-wrap;
-        font-family: "Esteban", serif;
-        font-size: 2em;
-      }
-
-      .factoid-link {
-        font-size: 1.2em;
-      }
-      h1 { margin: 0; padding: 0; }
-      a { color: #ddd; } 
-      #container {
-        color: #eee;
-text-align: center;
-background-color: #444;
-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-margin: 0 auto;
-max-width: 920px;
-border: 2px solid gray;
-padding: 1em;
-      }
-
-    .more, .factoid {
-      margin-top: 2em;
-    }
-
-    .more-link {
-      border: 1px solid gray;
-      background-color: #0073ae;
-      color: white;
-      padding: 0.3em;
-      display: inline-block;
-    }
-
-    table { width: 100%; text-align: left; } 
-    </style>
+    <title>Fair Copyright</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/style.css" type="text/css" rel="stylesheet">
+    <script src="/static/jquery-1.10.0.min.js"></script>
+    <!--[if lt IE 9]>
+      <script src="/static/json3.js"></script>
+      <script src="/static/jquery.ba-hashchange.min.js"></script>
+    <![endif]-->
   </head>
   <body>
     <div id="container">
-      <h1>Some kind of convincing title?</h1>
+      <div id="header">
+        <div class="content">
+          <h1>
+            <a href="/">#COPYWRONG</a>
+          </h1>
+        </div>
+      </div>
+      
+      <div id="blurb">
+        <div class="content">
+          Australia's copyright laws are out of touch with the digital world. They're designed to balance protections for creators alongside fair and reasonable access to works, but in the digital age they're falling behind. At the moment, they're more #copywrong than #copyright.
+        </div>
+      </div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Factoid</th>
-            <th>Source</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for factoid in factoids %}
-          <tr>{% autoescape None %}
-            <td>{{factoid['content']}}</td>
-            <td><a href="{{factoid['source_url']}}">{{factoid['source_text']}}</a></td>
-            <td><a href="/{{factoid['slug']}}">[{{factoid['slug']}}]</a></td>
-          </tr>
-        {% end %}
-        </tbody>
-      </table>
+      <div id='body'>
+        <div class="content">
+          <ul id="all-list">
+            {% for factoid in factoids %}
+            <li><a class='source' href="/{{factoid['slug']}}">{{factoid['content']}}</a></li>
+            {% end %}
+          </ul>
+        </div>
+      </div>
+      
+      <div id='footer'>
+        <div class="content">
+          <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/deed.en_US"><img alt="Creative Commons License" style="border-width:0;" class='cc-by' src="http://i.creativecommons.org/l/by/3.0/au/80x15.png" /></a>
+          <a href="/all">See all the facts</a>
+          <div style="float: right"> 
+            <span style="vertical-align: middle">
+              <a href="http://digital.org.au">Australian Digital Alliance</a>
+              &bull;
+              <a id="about-button" href="#about-this-site">About This Site</a>
+            </span>
+          </div>
+          <div style="clear:both"></div>
+          <div id="about-this-site" style='border-top:#ddd;display:none'>
+            <hr>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut leo dui. Ut feugiat condimentum tellus, a commodo elit euismod nec. Vivamus quis felis magna, ac pellentesque mi. Phasellus hendrerit lectus vel mi pellentesque at mattis lectus venenatis. Integer a diam auctor risus consectetur tincidunt.
+            </p><p>
+            Duis consectetur commodo tortor, at convallis orci ultricies non. Donec eros lacus, adipiscing non ullamcorper sit amet, convallis nec dui. Maecenas ac leo turpis, non pretium velit. In tempor dictum fermentum. Mauris ac dui ut elit molestie suscipit. Nullam vitae nibh at dui sagittis laoreet in eget est. In hac habitasse platea dictumst. Pellentesque vel dui eget orci tempus laoreet. Nulla quis magna nec eros dictum euismod. Suspendisse purus orci, lobortis id egestas in, porta et augue. Sed in mi elit, quis tempor elit.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <script></script>
   </body>
 </html>
+
