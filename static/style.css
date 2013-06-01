@@ -129,6 +129,7 @@ h1 {
 #all-list li {
   padding: 1em 0em;
   border-top: 1px solid #ddd;
+  text-indent: -0.1em;
 }
 
 #all-list li:first-child {
