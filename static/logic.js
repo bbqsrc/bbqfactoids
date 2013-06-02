@@ -149,7 +149,11 @@ $(function() {
     }
     $("#about-button").click(function(e) {
         e.preventDefault();
-        $("#about-this-site").slideToggle();
+        $("#about-this-site").slideToggle(200, function(){
+            if ($("#about-this-site").is(":visible")) {
+              $("body")[0].scrollTop = $(document).height() - $(window).height();
+            }
+        });
     });
     $("#hot-pink-time").click(hotPinkTimeOn);
 });
