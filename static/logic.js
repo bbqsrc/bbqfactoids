@@ -92,7 +92,7 @@ function loadFactoid(data) {
     $("#body").fadeOut(200);
     setTimeout(function() {
         $("#more_content").hide();
-        $("#button").removeAttr('href').html("").hide();
+        $("#button").removeAttr('href').html("");
     
         $("#content").empty().append(data.content.split("\n").join("<br>"));
         setTweetButton()
@@ -110,17 +110,14 @@ function loadFactoid(data) {
         }
         
         if (data.button_text && data.button_url) {
-            $("#button").attr('href', data.button_url).html(data.button_text).show();
-        }
-    
-        if (data.button_text && data.button_url && !data.more_content) {
-            $("#more_button").css('display', 'inline-block');
+            $("#button").attr('href', data.button_url).html(data.button_text);
+            !data.more_content ? $("#more_button").css('display', 'inline-block') : $("#more_button").hide();
         } else {
+            $("#button").removeAttr('href').html('');
             $("#more_button").hide();
         }
     }, 200);
     $("#body").fadeIn(200);
-    $("#next-fact").removeAttr('disabled');
 }
 
 $(function() {
@@ -136,7 +133,6 @@ $(function() {
     
     if (window.JSON) { // IE7 gets a force load
         $("#next-fact, #header a").click(function(e) {
-            $(this).attr('disabled', true);
             e.preventDefault();
             $.get("/random.json", function(data) {
                 if (!data.error) {
