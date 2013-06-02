@@ -192,7 +192,7 @@ function hotPinkTimeOn(e) {
     interval = setInterval(function() {
         $("#content").css({
             'position': 'relative',
-            'color': hotPinkTime ? 'black' : '#e75722',
+            'color': hotPinkTime ? 'black' : 'fuchsia',
             'left': parseInt(Math.random() * 40) - 20,
             'top': parseInt(Math.random() * 40) - 20,
             'transform': 'rotate(' + (parseInt(Math.random() * 10) - 5) + 'deg)'
@@ -200,7 +200,7 @@ function hotPinkTimeOn(e) {
         hotPinkTime = !hotPinkTime;
     }, 100);
     
-    $("#hot-pink-time").css('color', '#e75722')
+    $("#hot-pink-time").css('color', 'fuchsia')
         .off('click').click(hotPinkTimeOff);
 }
 
