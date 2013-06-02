@@ -92,6 +92,7 @@ function loadFactoid(data) {
     $("#body").fadeOut(200);
     setTimeout(function() {
         $("#more_content").hide();
+        $("#button").removeAttr('href').html("").hide();
     
         $("#content").empty().append(data.content.split("\n").join("<br>"));
         setTweetButton()
@@ -109,7 +110,7 @@ function loadFactoid(data) {
         }
         
         if (data.button_text && data.button_url) {
-            $("#button").attr('href', data.button_url).html(data.button_text);
+            $("#button").attr('href', data.button_url).html(data.button_text).show();
         }
     
         if (data.button_text && data.button_url && !data.more_content) {
