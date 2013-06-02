@@ -125,9 +125,8 @@ $(function() {
     $("#read-more").click(function() {
       $("#read-more").parent().fadeOut(200);
       $("#more_content").slideDown(200);
-      var btn = $("#button");
-      if (btn.text() != "") {
-        btn.fadeIn(200);
+      if ($("#button").text() != "") {
+        $("#more_button").fadeIn(200);
       }
     });
     
