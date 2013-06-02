@@ -149,7 +149,7 @@ $(function() {
     }
     $("#about-button").click(function(e) {
         e.preventDefault();
-        $("#about-this-site").toggle();
+        $("#about-this-site").slideToggle();
     });
     $("#hot-pink-time").click(hotPinkTimeOn);
 });

@@ -19,7 +19,7 @@ src:url(/static/fonts/doradani_rg_it-webfont.eot?#iefix) format('embedded-openty
     margin: 1em 0em !important;
   }
 
-  #blurb {
+  #blurb, #about-this-site {
     font-size: 75%;
   }
   
@@ -59,6 +59,7 @@ h1 {
   text-align: center;
 }
 
+#about-this-site,
 #blurb {
   color: white;
   background-color: #434445;
@@ -69,13 +70,19 @@ h1 {
   box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.1);
 }
 
+#about-this-site, #body {
+  -webkit-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.1);
+}
+
 #content {
   font-size: 180%;
   margin: 1em;
   text-align: center;
 }
 
-#blurb, #content, #more_content {
+#blurb, #about-this-site, #content, #more_content {
   line-height: 1.3em;
 }
 
@@ -173,6 +180,7 @@ h1 {
   padding: 1.5em 1em 2em;
 }
 
+#about-this-site .content,
 #blurb .content {
   padding: 1em;
 }

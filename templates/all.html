@@ -37,6 +37,13 @@
         </div>
       </div>
       
+      <div id="about-this-site" style='display:none'>
+        <div class="content">
+          <p>The Australian Law Reform Commission (ALRC) is currently undertaking a Inquiry into exceptions in Australian copyright law. They’ve been tasked with determining whether our existing copyright exceptions are adequate and appropriate in the digital environment.</p>
+          <p>The Inquiry has generated a lot of debate around the best copyright framework for Australia’s rapidly growing digital economy.  This website highlights some of the basic conflicts between our existing copyright exceptions and emergent digital technologies. These are just a few of the aspects of Australian copyright law we believe need changing.</p>
+          <p>You can read more about the copyright issues affecting a range of sectors, from libraries and archives to IT companies, schools, universities, museums, galleries, artists and consumers in the Australian Digital Alliance’s submission to the ALRC Issues Paper on Copyright &amp; the Digital Economy.</p>
+        </div>
+      </div>
       <div id='footer'>
         <div class="content">
           <a rel="license" href="http://creativecommons.org/licenses/by/3.0/au/deed.en_US"><img alt="Creative Commons License" style="border-width:0;" class='cc-by' src="http://i.creativecommons.org/l/by/3.0/au/80x15.png" /></a>
@@ -44,23 +51,21 @@
             <span style="vertical-align: middle">
               <a href="http://digital.org.au">Australian Digital Alliance</a>
               &bull;
-              <a id="about-button" href="#about-this-site">About This Site</a>
+              <a id="about-button" href="javascript:;">About This Site</a>
             </span>
           </div>
           <div style="clear:both"></div>
-          <div id="about-this-site" style='border-top:#ddd;display:none'>
-            <hr>
-            <p>The Australian Law Reform Commission (ALRC) is currently undertaking a Inquiry into exceptions in Australian copyright law. They’ve been tasked with determining whether our existing copyright exceptions are adequate and appropriate in the digital environment.</p>
-            <p>The Inquiry has generated a lot of debate around the best copyright framework for Australia’s rapidly growing digital economy.  This website highlights some of the basic conflicts between our existing copyright exceptions and emergent digital technologies. These are just a few of the aspects of Australian copyright law we believe need changing.</p>
-            <p>You can read more about the copyright issues affecting a range of sectors, from libraries and archives to IT companies, schools, universities, museums, galleries, artists and consumers in the Australian Digital Alliance’s submission to the ALRC Issues Paper on Copyright &amp; the Digital Economy.</p>
-          </div>
         </div>
       </div>
     </div>
     <script>
     $("#about-button").click(function(e) {
         e.preventDefault();
-        $("#about-this-site").toggle();
+        $("#about-this-site").slideToggle(200, function(){
+            if ($("#about-this-site").is(":visible")) {
+              $("body")[0].scrollTop = $(document).height() - $(window).height();
+            }
+        });
     });
     </script>
   </body>
