@@ -148,16 +148,23 @@ h1 {
   padding-bottom: 0;
 }
 
+#about-the-site a,
 .source {
   color: #1E8FBB;
   text-decoration: none;
   padding: 0.1em 0.2em;
 }
 
+#about-the-site a {
+  color: #0073ae;
+}
+
+#about-the-site a:visited,
 .source:visited {
   color: #0073AE;
 }
 
+#about-the-site a:hover,
 .source:hover {
   color: white;
   background-color: #0073AE;
