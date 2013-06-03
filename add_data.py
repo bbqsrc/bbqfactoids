@@ -16,9 +16,7 @@ for line in csv.reader(open(sys.argv[1])):
         "slug": line[1].strip().lower(),
         "source_text": line[2].strip(),
         "source_url": line[3].strip(),
-        "more_content": line[4].strip(),
-        "button_text": line[5].strip(),
-        "button_url": line[6].strip()
+        "more_content": line[4].strip()
     }, safe=True)
     slugs.append(line[1].strip())
 

@@ -108,14 +108,6 @@ function loadFactoid(data) {
             $("#more_content").empty().hide();
             $("#read-more").parent().hide();
         }
-        
-        if (data.button_text && data.button_url) {
-            $("#button").attr('href', data.button_url).html(data.button_text);
-            !data.more_content ? $("#more_button").css('display', 'inline-block') : $("#more_button").hide();
-        } else {
-            $("#button").removeAttr('href').html('');
-            $("#more_button").hide();
-        }
     }, 200);
     $("#body").fadeIn(200);
 }
@@ -125,9 +117,6 @@ $(function() {
     $("#read-more").click(function() {
       $("#read-more").parent().fadeOut(200);
       $("#more_content").slideDown(200);
-      if ($("#button").text() != "") {
-        $("#more_button").fadeIn(200);
-      }
     });
     
     if (window.JSON) { // IE7 gets a force load
