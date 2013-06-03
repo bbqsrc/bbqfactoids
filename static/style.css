@@ -156,10 +156,10 @@ h1 {
 }
 
 #about-this-site a {
-  color: #0073ae;
+  color: #0093ce;
+  text-shadow: 0px 1px 1px #333;
 }
 
-#about-this-site a:visited,
 .source:visited {
   color: #0073AE;
 }
